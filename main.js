@@ -34,7 +34,6 @@
     // todo表示
     todos.forEach((todo, index) => {
       const liElement = document.createElement('li');
-      const num = index;
       liElement.innerText = `${index}番目 : ${todo}`;
 
       // deleteButton作成
@@ -42,7 +41,7 @@
       deleteButton.innerText = '削除';
       liElement.appendChild(deleteButton);
       deleteButton.addEventListener('click', () => {
-        deleteTodos(num);
+        deleteTodo(index);
       });
       todoList.appendChild(liElement);
     });
@@ -52,7 +51,7 @@
   //   - todosから対応するtodo情報を削除する
   //   - 引数はindexを受け取る(インデックス番号)
   //   - 削除後はshowTodosを実行して、Todoリストを整理する
-  function deleteTodos(index) {
+  function deleteTodo(index) {
     todos.splice(index, 1);
     showTodos();
   }
